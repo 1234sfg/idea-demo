@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.leaf.mapper.TProductDAO">
+
+    <insert id="insertTProduct" parameterType="com.leaf.model.TProduct">
+        insert into t_product (name,price,description,repertory,info_id)values(#{name},#{price},#{description},#{repertory},#{infoId})
+    </insert>
+    <delete id="deleteTProduct" parameterType="java.lang.Integer">
+        delete from t_product where id = #{id}
+    </delete>
+    <update id="updateTProduct" parameterType="com.leaf.model.TProduct">
+        update t_product set name=#{name},price=#{price},description=#{description},repertory=#{repertory},info_id=#{infoId}
+        where id=#{id}
+    </update>
+    <select id="getTProductList" resultType="map" parameterType="com.leaf.model.TProduct">
+        select * from t_product
+    </select>
+
+</mapper>
+
+<!--        Integer insertTProduct(TProduct tProduct);-->
